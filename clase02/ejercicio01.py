@@ -68,6 +68,7 @@ def main():
     #         print(e)
         
     while True:
+        print("\n")
         print("~~~~Registro y Visualización de Empleados~~~~")
         print("*" * 60)
         print(f"{" " * 12} {"*" * 5}  Menú Principal {"*" * 5} ")    
@@ -75,31 +76,31 @@ def main():
         print("Registrar Empleado (1)")
         print("Mostrar Empleados (2)")
         print("Salir (3)")
-        
+        print("\n")
         
         
         try:
-            opcion = int(input("Ingrese la opción de su preferencia: "))
+            opcion = input("Ingrese la opción de su preferencia: ")
             
-            if not(isinstance(opcion, int)):
+            if not(opcion.isnumeric()):
                 raise ValueError("Opcion inválida. Asegurese de ingresar un número que corresponda a algúna de las opciones del menú") 
                     
-            if not (0 < opcion <= 3):
+            if not (0 < int(opcion) <= 3):
                 raise ValueError("Opcion inválida. Asegurese de ingresar un número entero que sea positivo y que este entre 1 y 3.")
                 
             
-            if opcion == 1:
+            if opcion == "1":
                     nombre = input("Digite el nombre: ")
                     posicion = input("Digite la posición: ")
                     salario = float(input("Digite el salario: "))
                     empleados.append(registrarEmpleado(nombre, posicion, salario))
                 
-            if opcion == 2:
+            if opcion == "2":
                     print("Mostrar empleados")
                     print("\n")
                     mostrarEmpleados(empleados)
                 
-            if opcion == 3:
+            if opcion == "3":
                     break
             
         
@@ -121,6 +122,9 @@ if __name__ == "__main__":
     y muestra el mensaje de error predeterminado.
     
     3.) El try except va en el metodo main y los Raise ValueError van en los metodos.
+
+    4.) Hay un boton que sirve para mostrar en una sola pantalla dos versiones del codigo que estoy haciendo; a la derecha el que edito y a la izquierda el que registra en donde hice cambios (en que linea). Se llama show changes.
     
+    5.) A veces es necesario matar el terminal antes de probar un cambio.
     
     """
