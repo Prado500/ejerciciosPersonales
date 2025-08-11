@@ -9,8 +9,7 @@ def registrarEmpleado(nombre, posicion, salario):
 def mostrarEmpleado(empleados):
     for i, (nombre, posicion, salario) in enumerate(empleados, start = 1 ):
         print(f"{i}. {nombre}, {posicion}, ${salario:.2f}")
-        
-        
+         
 def main():
     
     empleados = []
@@ -26,27 +25,32 @@ def main():
         print("(3) Salir")
         opcion = input("Digite alguna opción del menú: ")
         
-        if opcion.isnumeric() and 4 > int(opcion) >= 1 and opcion == "1":
-               
-            nombre = input("Ingrese el nombre: ")
-            posicion = input("Ingrese la posición: ")
-            salario = input("Ingrese el salario: ")
-        
-            if isinstance(nombre, str) and isinstance(posicion, str) and (salario.isnumeric() and 0 < int(salario)):
-                empleados.append(registrarEmpleado(nombre, posicion, float(salario))) 
-                
-            
-            else:
-                print("Los datos ingresados no son correctos.\nPor favor asegúrese de ingresar nombres y cargos reales.\nAsegúrese también de ingresar un salario que sea un número positivo y mayor que 0   ") 
-        
-        if opcion.isnumeric() and 4 > int(opcion) >= 1 and opcion == "2":
-            mostrarEmpleado(empleados)
-                
-        if opcion.isnumeric() and 4 > int(opcion) >= 1 and opcion == "3":
-            break
-        
         if not(opcion.isnumeric()):
             print("Ha digitado una opción inválida. Sólo se permite los números 1, 2 y 3. ")
+            
+        if opcion > "3" or opcion == "0":
+            print("Ha digitado una opción inválida. Sólo se permite los números 1, 2 y 3. ")
+        
+        else:  
+            if opcion.isnumeric() and 4 > int(opcion) >= 1 and opcion == "1":
+                
+                nombre = input("Ingrese el nombre: ")
+                posicion = input("Ingrese la posición: ")
+                salario = input("Ingrese el salario: ")
+            
+                if isinstance(nombre, str) and isinstance(posicion, str) and (salario.isnumeric() and 0 < int(salario)):
+                    empleados.append(registrarEmpleado(nombre, posicion, float(salario))) 
+                    
+                else:
+                    print("Los datos ingresados no son correctos.\nPor favor asegúrese de ingresar nombres y cargos reales.\nAsegúrese también de ingresar un salario que sea un número positivo y mayor que 0   ") 
+            
+            if opcion.isnumeric() and 4 > int(opcion) >= 1 and opcion == "2":
+                mostrarEmpleado(empleados)
+                    
+            if opcion.isnumeric() and 4 > int(opcion) >= 1 and opcion == "3":
+                break
+        
+        
 
 
         
